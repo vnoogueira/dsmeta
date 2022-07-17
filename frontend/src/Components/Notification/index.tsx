@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { toast } from 'react-toastify';
 import icon from '../../assets/img/notification-icon.svg'
 import { BASE_URL } from '../../utils/request';
 import './style.css'
@@ -7,7 +8,7 @@ type Props = { salleId: number; }
 
 function handlerClick(sallerId: number) {
     axios(`${BASE_URL}/sales/${sallerId}/notification`)
-        .then(response => console.log("SUCESSO"))
+        .then(response => toast.info("SMS enviado com sucesso !"))
 }
 
 function NotificationsButton({ salleId }: Props) {
